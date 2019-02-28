@@ -373,8 +373,8 @@ View_User_info(){
 # 设置 配置信息
 Set_config_user(){
 	echo "请输入要设置的用户 用户名(请勿重复, 用于区分, 不支持中文、空格, 会报错 !)"
-	read -e -p "(默认: doubi):" ssr_user
-	[[ -z "${ssr_user}" ]] && ssr_user="doubi"
+	read -e -p "(默认: comebey):" ssr_user
+	[[ -z "${ssr_user}" ]] && ssr_user="comebey"
 	ssr_user=$(echo "${ssr_user}"|sed 's/ //g')
 	echo && echo ${Separator_1} && echo -e "	用户名 : ${Green_font_prefix}${ssr_user}${Font_color_suffix}" && echo ${Separator_1} && echo
 }
@@ -382,8 +382,8 @@ Set_config_port(){
 	while true
 	do
 	echo -e "请输入要设置的用户 端口(请勿重复, 用于区分)"
-	read -e -p "(默认: 2333):" ssr_port
-	[[ -z "$ssr_port" ]] && ssr_port="2333"
+	read -e -p "(默认: 5210):" ssr_port
+	[[ -z "$ssr_port" ]] && ssr_port="5210"
 	echo $((${ssr_port}+0)) &>/dev/null
 	if [[ $? == 0 ]]; then
 		if [[ ${ssr_port} -ge 1 ]] && [[ ${ssr_port} -le 65535 ]]; then
@@ -399,8 +399,8 @@ Set_config_port(){
 }
 Set_config_password(){
 	echo "请输入要设置的用户 密码"
-	read -e -p "(默认: doub.io):" ssr_password
-	[[ -z "${ssr_password}" ]] && ssr_password="doub.io"
+	read -e -p "(默认: comebey):" ssr_password
+	[[ -z "${ssr_password}" ]] && ssr_password="comebey"
 	echo && echo ${Separator_1} && echo -e "	密码 : ${Green_font_prefix}${ssr_password}${Font_color_suffix}" && echo ${Separator_1} && echo
 }
 Set_config_method(){
@@ -1396,7 +1396,7 @@ Clear_transfer_all_cron_start(){
 	echo -e "\n${Crontab_time} /bin/bash $file/ssrmu.sh clearall" >> "$file/crontab.bak"
 	crontab "$file/crontab.bak"
 	rm -r "$file/crontab.bak"
-	cron_config=$(crontab -l | grep "ssrmu.sh")
+	cron_config=$(crontab -l | grep "hasan.sh")
 	if [[ -z ${cron_config} ]]; then
 		echo -e "${Error} 定时所有用户流量清零启动失败 !" && exit 1
 	else
@@ -1408,7 +1408,7 @@ Clear_transfer_all_cron_stop(){
 	sed -i "/ssrmu.sh/d" "$file/crontab.bak"
 	crontab "$file/crontab.bak"
 	rm -r "$file/crontab.bak"
-	cron_config=$(crontab -l | grep "ssrmu.sh")
+	cron_config=$(crontab -l | grep "hasan.sh")
 	if [[ ! -z ${cron_config} ]]; then
 		echo -e "${Error} 定时所有用户流量清零停止失败 !" && exit 1
 	else
@@ -1761,7 +1761,7 @@ crontab_monitor_ssr_cron_stop(){
 	sed -i "/ssrmu.sh monitor/d" "$file/crontab.bak"
 	crontab "$file/crontab.bak"
 	rm -r "$file/crontab.bak"
-	cron_config=$(crontab -l | grep "ssrmu.sh monitor")
+	cron_config=$(crontab -l | grep "hasan.sh monitor")
 	if [[ ! -z ${cron_config} ]]; then
 		echo -e "${Error} ShadowsocksR服务端运行状态监控功能 停止失败 !" && exit 1
 	else
@@ -1771,8 +1771,8 @@ crontab_monitor_ssr_cron_stop(){
 Update_Shell(){
 	sh_new_ver=$(wget --no-check-certificate -qO- -t1 -T3 "https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrmu.sh"|grep 'sh_ver="'|awk -F "=" '{print $NF}'|sed 's/\"//g'|head -1) && sh_new_type="github"
 	[[ -z ${sh_new_ver} ]] && echo -e "${Error} 无法链接到 Github !" && exit 0
-	if [[ -e "/etc/init.d/ssrmu" ]]; then
-		rm -rf /etc/init.d/ssrmu
+	if [[ -e "/etc/init.d/hasan" ]]; then
+		rm -rf /etc/init.d/hasan
 		Service_SSR
 	fi
 	cd "${file}"
