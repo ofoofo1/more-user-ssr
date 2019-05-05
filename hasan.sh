@@ -7,6 +7,8 @@ export PATH
 #	Description: Install the ShadowsocksR mudbjson server
 #	Version: 1.0.26                            
 #	youtube关注https://www.youtube.com/c/HasanW
+#       Twitter关注免费节点获取https://twitter.com/WangTao_Im
+#       Instagram关注https://www.instagram.com/wangtao.lm/
 #	
 #==============================================================================================
 
@@ -1802,7 +1804,9 @@ elif [[ "${action}" == "monitor" ]]; then
 	crontab_monitor_ssr
 else
 	echo -e "  ShadowsocksR ComeBey一键管理脚本 ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
-     ---- youtube关注https://www.youtube.com/channel/UCiMTLB5vELIq3Dz9muBRfJw?view_as=subscriber ----
+          # youtube关注https://www.youtube.com/c/HasanW          #
+          # Twitter关注免费节点获取https://twitter.com/WangTao_Im #
+          # Instagram关注https://www.instagram.com/wangtao.lm/   #
 
   ${Green_font_prefix}1.${Font_color_suffix} 安装 ShadowsocksR
   ${Green_font_prefix}2.${Font_color_suffix} 更新 ShadowsocksR
