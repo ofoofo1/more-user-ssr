@@ -6,9 +6,9 @@ export PATH
 #	System Required: CentOS 6+/Debian 6+/Ubuntu 14.04+
 #	Description: Install the ShadowsocksR mudbjson server
 #	Version: 1.0.26                            
-#	youtube关注https://www.youtube.com/c/HasanW
-#       Twitter关注免费节点获取https://twitter.com/WangTao_Im
-#       Instagram关注https://www.instagram.com/wangtao.lm/
+#	youtube:https://www.youtube.com/c/ComeBey
+#       Twitter:https://twitter.com/WangTao_Im
+#       blog:https://www.rootfw.com
 #	
 #==============================================================================================
 
